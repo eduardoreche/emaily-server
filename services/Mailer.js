@@ -33,10 +33,10 @@ class Mailer extends helper.Mail {
 
   addRecipients() {
     const personalize = new helper.Personalization();
+
     this.recipients.forEach(recipient => {
       personalize.addTo(recipient);
     });
-
     this.addPersonalization(personalize);
   }
 
@@ -48,9 +48,6 @@ class Mailer extends helper.Mail {
     });
 
     const response = await this.sgApi.API(request);
-
-    console.log('RESPONSE', response);
-
     return response;
   }
 }
